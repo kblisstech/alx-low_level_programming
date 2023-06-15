@@ -3,11 +3,11 @@
 
 /**
  * main - Entry point
- * Return 1 (Success)
+ * Return: 1 (Success)
  */
 int main(void)
 {
-	fput(STDOUT_FILENO, "and that piece of art is useful\"
-			 - Dora Korpar, 2015-10-19\n", stdout);
+	write(STDOUT_FILENO, "and that piece of art is useful
+			\" - Dora Korpar, 2015-10-19\n", 59);
 	return (1);
-}
+}}
