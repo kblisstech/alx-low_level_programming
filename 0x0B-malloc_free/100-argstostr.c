@@ -1,54 +1,46 @@
 #include "main.h"
-#include <stdio.h>
+#include <stddef.h>
 #include <stdlib.h>
 
 /**
- *argstostr - convert the params passed to the program to string
- *@ac: the argument count
- *@av: the arguments vector
- *Return: a pointer to a new string
+ * argstostr - prints args
+ * @ac: takes in width of grid
+ * @av: height of grid
+ * Return: the args one line at a time
  */
 
 char *argstostr(int ac, char **av)
-
 {
-	Int ch = 0, k, j,
-	char *s;
+	char *str;
+	int count = 0, a = 0, b = 0, c = 0;
 
-	k = 0;
-	j = 0;
-	i = 0;
-	if (ac == 0 || str == NULL)
+	if (ac == 0 || av == NULL)
 		return (NULL);
-	while (i < ac)
+	while (a < ac)
 	{
-		while (av[i][j])
+		b = 0;
+		while (av[a][b] != '\0')
 		{
-			ch++
-			j++
+			count++;
+			b++;
 		}
-		j = 0
-		i++
+		a++;
 	}
-
-	s = malloc((sizeof(char) * ch) + ac + 1);
-	i = 0;
-	while (av[i])
+	count = count + ac + 1;
+	str = malloc(sizeof(char) * count);
+	if (str == NULL)
 	{
-		while (av[i][j])
-		{
-			s[k] = av[i][j];
-			k++;
-			j++;
-		}
-
-		s[k] = '\n';
-
-		j = 0;
-		k++;
-		i++;
+		return (NULL);
 	}
-	k++;
-	s[k] = '\0';
-	return (s);
+	for (a = 0; a < ac; a++)
+	{
+		for (b = 0; av[a][b] != '\0'; b++)
+		{
+			str[c] = av[a][b];
+			c++;
+		}
+		str[c] = '\n';
+		c++;
+	}
+	return (str);
 }
